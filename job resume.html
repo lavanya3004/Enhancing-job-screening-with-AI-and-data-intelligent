@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Job Screening</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      
+      background: #f4f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    input[type="file"],
+    textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background-color: #0077ff;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005fcc;
+    }
+
+    #result {
+      margin-top: 30px;
+      padding: 20px;
+      background: #ecf9ec;
+      border: 1px solid #b2d8b2;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔍 AI Job Screening Assistant</h1>
+    <p>Upload your resume and paste a job description. Get an instant match score!</p>
+
+    <form id="matchForm">
+      <label>Upload Resume (PDF):</label>
+      <input type="file" id="resume" accept=".pdf" required />
+
+      <label>Paste Job Description:</label>
+      <textarea id="jobDesc" rows="6" placeholder="Enter job description here..." required></textarea>
+
+      <button type="submit">Get Match Score</button>
+    </form>
+
+    <div id="result" class="hidden">
+      <h2>✅ Match Score:</h2>
+      <p id="scoreDisplay">...</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('matchForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const resumeFile = document.getElementById('resume').files[0];
+      const jobDesc = document.getElementById('jobDesc').value.trim();
+
+      if (!resumeFile || !jobDesc) {
+        alert('Please upload a resume and enter a job description.');
+        return;
+      }
+
+      // For demo: generate a fake score between 60% and 100%
+      const score = Math.floor(Math.random() * 41) + 60;
+
+      document.getElementById('scoreDisplay').textContent = `${score}% match`;
+      document.getElementById('result').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
