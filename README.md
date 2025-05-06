@@ -16,7 +16,7 @@ Backend extracts resume text using PyMuPDF
 Compares both using TfidfVectorizer and cosine_similarity
 Outputs a match score (%)
 
-TECH STACK:
+Tech Stack:
 
 Component	Technology
 Frontend	HTML, CSS, JavaScript
@@ -50,14 +50,14 @@ cpp
 Copy
 Edit
 http://127.0.0.1:5000
-📁 Project Structure
+Project Structure:
 bash
 Copy
 Edit
 ai-job-screening/
-│
-├── app.py             # Flask app with backend + embedded frontend
-├── README.md          # Project documentation
+
+ app.py             # Flask app with backend + embedded frontend
+ README.md          # Project documentation
 
 Future Enhancements:
 
